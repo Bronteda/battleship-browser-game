@@ -54,7 +54,7 @@ body {
     padding: 10px 20px;
     font-weight: bold;
     font-size: 16px;
-    background-color: #f0f0f0;
+    background-color:#aad4ff;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -72,4 +72,34 @@ body {
 
 .ship-btn:hover {
     background-color: #aad4ff;
+}
+
+.position-container{
+   display:flex;
+   flex-direction: row;
+   gap:10px;
+   padding:20px;
+}
+
+.hide{
+    display:none;
+}
+
+.position-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #d6eaff;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+.selected {
+    background-color: #0077cc;
+}
+
+.ship{
+    background-color: lightseagreen;
 }
