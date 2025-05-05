@@ -15,10 +15,14 @@
 
         <div class="left-panel">
             <h2 class="player-indicator">Player 1</h2>
-            <p id="message">Select a Boat to Place on the grid</p>
+            <p id="message">Select a Ship to Place on the grid</p>
             <div class="position-container hide">
                 <button class="position-btn">Horizontal</button>
                 <button class="position-btn">Vertical</button>
+            </div>
+            <div class="gameBtnConatiner hide">
+                <button class="playBtn">Let's Play</button>
+                <button class="repositionBtn">Reposition Your Ships</button>
             </div>
             <div class="grid" id="game-board">
                 <!-- 10x10 cells will go here -->
@@ -26,7 +30,7 @@
         </div>
 
         <div class="right-panel">
-            <h3>Select the Boat</h3>
+            <h3 class="selectShipMessage">Select the Ship</h3>
             <button class="ship-btn" id="5">5 Cells</button>
             <button class="ship-btn" id="4">4 Cells</button>
             <button class="ship-btn" id="3">3 Cells</button>

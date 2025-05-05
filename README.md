@@ -8,3 +8,13 @@ You need width and index in order to calculate row.
 width=10
 index=23
 row = Math.floor(index/width) - row 2
+
+- Set - is a special list that only stores unique values (no duplicates allowed) and faster when you want to check something is in a list. 
+example:
+const mySet = new Set();
+
+mySet.add(3); // adds 3
+mySet.add(3); // does nothing because 3 is already in the set
+
+console.log(mySet.has(3)); // true
+console.log(mySet.has(5)); // false

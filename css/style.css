@@ -81,10 +81,6 @@ body {
    padding:20px;
 }
 
-.hide{
-    display:none;
-}
-
 .position-container button {
     padding: 8px 16px;
     font-size: 14px;
@@ -102,4 +98,25 @@ body {
 
 .ship{
     background-color: lightseagreen;
+}
+
+.gameBtnConatiner{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+    padding:20px;
+ }
+.gameBtnConatiner button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #d6eaff;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.hide{
+    display:none;
 }
