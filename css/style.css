@@ -54,7 +54,7 @@ body {
     padding: 10px 20px;
     font-weight: bold;
     font-size: 16px;
-    background-color:#aad4ff;
+    background-color: #aad4ff;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -74,11 +74,11 @@ body {
     background-color: #aad4ff;
 }
 
-.position-container{
-   display:flex;
-   flex-direction: row;
-   gap:10px;
-   padding:20px;
+.position-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
 }
 
 .position-container button {
@@ -96,16 +96,17 @@ body {
     background-color: #0077cc;
 }
 
-.ship{
+.ship {
     background-color: lightseagreen;
 }
 
-.gameBtnConatiner{
-    display:flex;
+.gameBtnConatiner {
+    display: flex;
     flex-direction: row;
-    gap:10px;
-    padding:20px;
- }
+    gap: 10px;
+    padding: 20px;
+}
+
 .gameBtnConatiner button {
     padding: 8px 16px;
     font-size: 14px;
@@ -117,6 +118,29 @@ body {
     text-align: center;
 }
 
-.hide{
-    display:none;
+.computer-ship {
+    background-color: orange;
+
+}
+
+#playAgainContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+}
+
+.playAgainBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #d6eaff;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
 }

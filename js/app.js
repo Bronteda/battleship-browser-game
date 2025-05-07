@@ -46,18 +46,22 @@ const positionContainerEl = document.querySelector('.position-container');
 //position button elements
 const positionBtnEls = document.querySelectorAll('.position-btn');
 //Add select Ship message 
-const SelectShipMessageEl = document.querySelector('.selectShipMessage')
+const SelectShipMessageEl = document.querySelector('.selectShipMessage');
 //Game button elements - let's play & reposition
-const gameBtnConatinerEls = document.querySelector('.gameBtnConatiner')
-
-
-
+const gameBtnConatinerEls = document.querySelector('.gameBtnConatiner');
+//Play Again button
+const playAagainBtnEl = document.querySelector('.playAgainBtn');
 
 
 
 /*-------------------------------- Functions --------------------------------*/
 const init = (() => {
     createGrid();
+    shipBtnEls.forEach((ship) => {
+        ship.removeEventListener('click', shipSelection);
+        ship.addEventListener('click', shipSelection);
+    });
+
 
 });
 
@@ -116,6 +120,12 @@ const squareClick = (sqEvent) => {
 const positionClick = (event) => {
     const positionSelected = event.target.innerText;
     const positionBtn = event.target;
+
+    //Makes sure the correct element is being clicked on
+    if (!positionBtn.classList.contains('position-btn')) {
+        return;
+    }
+
     console.log(positionSelected);
     disableBtn(positionBtnEls, positionBtn);
 
@@ -168,16 +178,18 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
         }
 
     } else if (positionChosen === 'Horizontal') {
-        const rowStart = Math.floor(startIndex / width) * width;
 
         for (let i = 0; i < shipCells; i++) {
             //new index to show if out of bounds or on different row ( error checking)
             const index = startIndex + i;
 
+            const startRow = Math.floor(startIndex / width);
+            const currentRow = Math.floor(index / width);
+
             //* This checks the index row is the same as the start row 
             // Math.floor(index / width) !== Math.floor(startIndex / width)
             if (index >= cellCount ||
-                Math.floor(index / width) !== Math.floor(startIndex / width) ||
+                currentRow !== startRow ||
                 cells[index].classList.contains('ship') // if ship is placed on another
             ) {
                 messageEl.textContent = 'Ship overlaps another or would go off the board. Please pick another square.';
@@ -245,8 +257,12 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
         //Shows the game buttons on screen
         gameBtnConatinerEls.classList.toggle('hide');
 
-        generateComputerSide();
         //add function to generate computer array
+        generateComputerSide();
+
+        //Reposition function 
+        gameBtnConatinerEls.addEventListener('click', handleGameOptions);
+
         //add function to startGame();   
     }
 }
@@ -274,7 +290,6 @@ const nextShip = () => {
     messageEl.textContent = 'Select your next Ship';
 
 }
-
 
 //*Generates Computers board layout randomly
 const generateComputerSide = () => {
@@ -316,13 +331,12 @@ const generateComputerSide = () => {
                         takenCells.has(index) // ship already taken
 
                     ) {
-                        fit = false;
+                        fits = false;
                         break;//stop ship from being built
 
                     }
                 } else {
                     // Vertical 
-
                     //move down the column
                     index = randomIndex + (i * width);
                     if (
@@ -335,15 +349,19 @@ const generateComputerSide = () => {
                 }
 
                 proposedCells.push(index);
+            }
 
+            if (fits) {
 
-                if (fits) {
-
-                    // Mark these cells as taken
-                    for (let cell of proposedCells) {
-                        takenCells.add(cell);
-                    }
+                // Mark these cells as taken
+                for (let cell of proposedCells) {
+                    takenCells.add(cell);
                 }
+                //This is just for testing purposes to see if ships boats fall on the grid correctly 
+                proposedCells.forEach(i => {
+                    cells[i].classList.add('computer-ship');
+                });
+
 
                 // Create ship object from cells
                 const ship = [];
@@ -372,14 +390,76 @@ const generateComputerSide = () => {
 
                 shipPlaced = true;
             }
-
         }
-
     }
-    console.log(computerShips);
+}
+
+const handleGameOptions = (event) => {
+    const optionBtn = event.target;
+
+    if (!optionBtn.classList.contains('gameBtn')) {
+        return;
+    }
+
+    if (optionBtn.classList.contains('playBtn')) {
+        //Play Function
+
+    } else {
+        //reset Board
+        resetTheBoard();
+    }
 }
 
 //*Additional functions
+
+//Reset the board 
+const resetTheBoard = () => {
+    //reset the board 
+
+    //Need to remove all cells with ship class 
+    cells.forEach((cell) => {
+        cell.classList.remove('ship');
+        cell.classList.remove('selected');
+    });
+
+    //Bring back the ship buttons
+    shipBtnEls.forEach((shipBtn) => {
+        shipBtn.disabled = false;
+        shipBtn.classList.remove('hide');
+        shipBtn.addEventListener('click', shipSelection);
+    });
+
+    numCells = null;
+    squareClicked = null;
+    currentShipButton = null;
+
+    //Remove the computer side as well 
+    computerShips.boat5 = [];
+    computerShips.boat4 = [];
+    computerShips.boat3 = [];
+    computerShips.boat2 = [];
+    // Clear ship visuals
+    cells.forEach(cell => cell.classList.remove('computer-ship'));
+
+
+    //Hide the game options again
+    gameBtnConatinerEls.classList.toggle('hide');
+
+    //Display the start message
+    messageEl.textContent = 'Select a Ship to Place on the grid';
+}
+
+//* Reset Square Selection after failed Ship attempt
+function resetSquareSelection() {
+    // Remove the 'selected' class from all cells
+    cells.forEach(cell => cell.classList.remove('selected'));
+    //  Clear the stored clicked square
+    squareClicked = null;
+    // enable the position buttons
+    enableBtn(positionBtnEls);
+    // (Re‑)attach the grid listener to select a new square
+    grid.addEventListener('click', squareClick);
+}
 
 //This disables the other buttons once one is selected
 const disableBtn = (domElement, selectedEl) => {
@@ -400,27 +480,8 @@ const enableBtn = (domElement) => {
 }
 
 
-//* Reset Square Selection after failed Ship attempt
-function resetSquareSelection() {
-    // Remove the 'selected' class from all cells
-    cells.forEach(cell => cell.classList.remove('selected'));
-    //  Clear the stored clicked square
-    squareClicked = null;
-    // enable the position buttons
-    enableBtn(positionBtnEls);
-    // (Re‑)attach the grid listener to select a new square
-    grid.addEventListener('click', squareClick);
-}
-
-
-
 /*----------------------------- Event Listeners -----------------------------*/
 
-
-shipBtnEls.forEach((ship) => {
-    ship.removeEventListener('click', shipSelection);
-    ship.addEventListener('click', shipSelection);
-});
 
 
 
