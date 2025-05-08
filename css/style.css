@@ -96,7 +96,7 @@ body {
     background-color: #0077cc;
 }
 
-.ship {
+.player-ship {
     background-color: lightseagreen;
 }
 
@@ -118,10 +118,10 @@ body {
     text-align: center;
 }
 
-.computer-ship {
+/*.computer-ship {
     background-color: orange;
 
-}
+}*/
 
 #playAgainContainer {
     display: flex;
@@ -140,6 +140,22 @@ body {
     width: 200px;
     text-align: center;
 }
+
+.player-hit {
+    background-color: red;
+}
+
+.player-miss {
+    background-color: yellow;
+}
+
+.sunk {
+    background-color: grey;
+}
+
+/* .computer-hit{
+    background-color: blueviolet;
+} */
 
 .hide {
     display: none;

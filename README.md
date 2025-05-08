@@ -18,3 +18,28 @@ mySet.add(3); // does nothing because 3 is already in the set
 
 console.log(mySet.has(3)); // true
 console.log(mySet.has(5)); // false
+
+- Do..While loop 
+The do...while loop is a control structure that runs the block of code once first, and then keeps running it as long as a condition is true. It's useful when you want to guarantee that the code inside runs at least once, even if the condition is false the first time.
+example :
+let number;
+
+do {
+  number = Math.floor(Math.random() * 10);
+  console.log("Picked:", number);
+} while (number !== 5);
+
+- Object.values(ships)
+This takes the object ships (e.g., playerShips or computerShips) and returns an array of all the ship arrays.
+ships 
+before:
+{
+  ship1: [{ cellNumber: 3, hit: true }, { cellNumber: 4, hit: true }],
+  ship2: [{ cellNumber: 10, hit: true }, { cellNumber: 11, hit: false }]
+}
+
+after: gives us an array we can loop through 
+{
+  ship1: [{ cellNumber: 3, hit: true }, { cellNumber: 4, hit: true }],
+  ship2: [{ cellNumber: 10, hit: true }, { cellNumber: 11, hit: false }]
+}
