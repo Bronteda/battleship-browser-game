@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <title>Battleship Browser Game</title>
-    <h1>Battleships</h1>
+    <h1 id="title">Battleships</h1>
 </head>
 
 <body>
+    <div id="startModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to Battleships!🛥️</h2>
+            <button id="startGameBtn">Start Game</button>
+        </div>
+    </div>
     <div class="container">
 
         <div class="left-panel">
@@ -33,15 +40,16 @@
         </div>
 
         <div class="right-panel">
-            <h3 class="selectShipMessage">Select the Ship</h3>
-            <button class="ship-btn" id="5">5 Cells</button>
-            <button class="ship-btn" id="4">4 Cells</button>
-            <button class="ship-btn" id="3">3 Cells</button>
-            <button class="ship-btn" id="2">2 Cells</button>
+            <h3 class="selectShipMessage">Select the Ship 🚢</h3>
+            <button class="ship-btn ship-5-btn" id="5">Ship 5</button>
+            <button class="ship-btn ship-4-btn" id="4">Ship 4</button>
+            <button class="ship-btn ship-3-btn" id="3">Ship 3</button>
+            <button class="ship-btn ship-2-btn" id="2">Ship 2</button>
             <div class="scores hide">
                 <p id="PlayerScore">Player Score = 0</p>
                 <p id="ComputerScore">Computer Score = 0</p>
             </div>
+            <button class="redoBtn">🔄️</button>
         </div>
     </div>
 </body>

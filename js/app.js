@@ -38,12 +38,18 @@ const shipBtnEls = document.querySelectorAll('.ship-btn');
 const positionContainerEl = document.querySelector('.position-container');
 //position button elements
 const positionBtnEls = document.querySelectorAll('.position-btn');
+//right panel
+const rightPanelEl = document.querySelector(".right-panel");
+//left panel
+const leftPanelEl = document.querySelector(".left-panel");
 //Add select Ship message 
 const SelectShipMessageEl = document.querySelector('.selectShipMessage');
 //Game button elements - let's play & reposition
 const gameBtnConatinerEls = document.querySelector('.gameBtnConatiner');
 //Play Again button
 const playAagainBtnEl = document.querySelector('.playAgainBtn');
+//re do button - basically resets board anytime during the game
+const redoBtnEl = document.querySelector(".redoBtn");
 //Scores
 const scoresConatinerel = document.querySelector('.scores');
 const playerScoreEl = document.querySelector('#PlayerScore');
@@ -52,6 +58,19 @@ const computerScoreEl = document.querySelector('#ComputerScore');
 
 
 /*-------------------------------- Functions --------------------------------*/
+
+//When window loads
+window.addEventListener('DOMContentLoaded', () => {
+    const startModal = document.getElementById('startModal');
+    const startButton = document.getElementById('startGameBtn');
+
+    startButton.addEventListener('click', () => {
+        startModal.style.display = 'none';
+        init();
+    });
+});
+
+//Initializing the game
 const init = (() => {
     createGrid();
     shipBtnEls.forEach((ship) => {
@@ -59,14 +78,16 @@ const init = (() => {
         ship.addEventListener('click', shipSelection);
     });
 
-
+    redoBtnEl.addEventListener('click', ()=>{
+        location.reload();
+    });
 });
 
 //*Grid Created
 const createGrid = (() => {
     for (let i = 0; i < cellCount; i++) {
         const cell = document.createElement('div');
-        cell.innerText = i;
+        //cell.innerText = i;
         cells.push(cell);
         grid.appendChild(cell);
     }
@@ -76,6 +97,7 @@ const createGrid = (() => {
 //*Ship Selected
 const shipSelection = ((event) => {
     currentShipButton = event.target;
+    console.log(currentShipButton);
     numCells = event.target.id;
     console.log('Ship has this many cells:', numCells);
 
@@ -544,7 +566,7 @@ const checkIfShipSunk = (ship, gameTurn) => {
         if (gameTurn === 'player') {
             messageEl.textContent = 'You sunk the computers Ship';
 
-            //Mark all ships that are sunk with a differen class 
+            //Mark all ships that are sunk with a different class 
             for (let cell of ship) {
                 cells[cell.cellNumber].classList.add('sunk');
             }
@@ -554,12 +576,17 @@ const checkIfShipSunk = (ship, gameTurn) => {
             if (checkIfAllSunk(gameTurn)) {
                 messageEl.textContent = "Well Done, You Won !!🥳"
                 gameOver = true; // prevent further moves
+                setTimeout(() => {
+                    confetti(); // default burst
+                }, 500);
+
                 playAagainBtnEl.classList.toggle('hide');
                 playAagainBtnEl.addEventListener('click', resetTheBoard);
             }
 
         } else {
             messageEl.textContent = 'The Computer sank your ship';
+
             computerScore += 1;
             computerScoreEl.textContent = `Computers Score = ${computerScore} `;
 
@@ -627,9 +654,11 @@ const reshuffleShips = () => {
     //Hide the game options again
     gameBtnConatinerEls.classList.toggle('hide');
 
+    //Show messsage again
+    SelectShipMessageEl.classList.toggle('hide');
+
     //Display the start message
     messageEl.textContent = 'Select a Ship to Place on the grid';
-
 
 }
 //Reset the board 
@@ -688,6 +717,9 @@ const resetTheBoard = () => {
     //Hide the game options again
     gameBtnConatinerEls.classList.toggle('hide');
 
+    //Show message again
+    SelectShipMessageEl.classList.toggle('hide');
+
     //Display the start message
     messageEl.textContent = 'Select a Ship to Place on the grid';
 }
@@ -721,7 +753,3 @@ const enableBtn = (domElement) => {
         SelectedBtn.disabled = false;
     });
 }
-
-//----- main ---//
-
-init();
