@@ -15,7 +15,62 @@
     <div id="startModal" class="modal">
         <div class="modal-content">
             <h2>Welcome to Battleships!🛥️</h2>
-            <button id="startGameBtn">Start Game</button>
+            <div class="model-container">
+                <button id="startGameBtn">Start Game</button>
+                <button id="instructionsBtn">How to play?</button>
+            </div>
+            <section id="how-to-play" class="how-to-play-section hide">
+                <h2>🧭 How to Play Battleships</h2>
+                <p><h3><strong>🎯 Objective:</strong><br></h3>
+                    Place your ships and sink the computer’s hidden fleet before yours are sunk!
+                </p>
+
+                <h3>🛠️ Game Setup:</h3>
+                <ul>
+                    <li>You have <strong>one 10x10 grid</strong>.</li>
+                    <li>You’ll place <strong>4 ships</strong> of different sizes:
+                        <ul>
+                            <li>Ship 5 – occupies 5 cells</li>
+                            <li>Ship 4 – occupies 4 cells</li>
+                            <li>Ship 3 – occupies 3 cells</li>
+                            <li>Ship 2 – occupies 2 cells</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>🛳️ Placing Your Ships:</h3>
+                <ol>
+                    <li>Click a ship button (e.g., <strong>Ship 5</strong>) on the right panel to select it.</li>
+                    <li>Choose the orientation – <strong>Horizontal</strong> or <strong>Vertical</strong>.</li>
+                    <li>Click on the grid to place the ship. It will highlight in a different color.</li>
+                    <li>Repeat for all ships. Once all are placed, the <strong>"Let's Play"</strong> button will appear.
+                    </li>
+                </ol>
+
+                <h3>🎮 Gameplay:</h3>
+                <ul>
+                    <li>Once the game starts, you’ll take turns with the computer.</li>
+                    <li>Click on a grid square to fire at that location.</li>
+                    <li><strong>Hit:</strong> The square is marked in red.🔴</li>
+                    <li><strong>Miss:</strong> The square is marked in yellow.🟡</li>
+                    <li>If all cells of a ship are hit, that ship is sunk and those squares turn grey.</li>
+                </ul>
+
+                <h3>🔁 Game Controls:</h3>
+                <ul>
+                    <li><strong>Reposition Your Ships</strong>: Clear your ship placements and start positioning again.
+                    </li>
+                    <li><strong>Play Again</strong>: Restarts the game after a win or loss.</li>
+                    <li><strong>Reset 🔄️</strong>: Returns you to the very beginning of the setup phase.</li>
+                </ul>
+
+                <h3>💡 Tips:</h3>
+                <ul>
+                    <li>Place ships with space between them to make them harder to find.</li>
+                    <li>Track your guesses and hits to deduce where the next ship might be.</li>
+                    <li>Think strategically—don't waste turns on already-guessed locations.</li>
+                </ul>
+            </section>
         </div>
     </div>
     <div class="container">

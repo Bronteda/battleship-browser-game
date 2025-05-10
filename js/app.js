@@ -54,6 +54,12 @@ const redoBtnEl = document.querySelector(".redoBtn");
 const scoresConatinerel = document.querySelector('.scores');
 const playerScoreEl = document.querySelector('#PlayerScore');
 const computerScoreEl = document.querySelector('#ComputerScore');
+//Start window
+const startModal = document.getElementById('startModal');
+const startButton = document.getElementById('startGameBtn');
+const instructionBtn = document.getElementById('instructionsBtn');
+const  instructionEl= document.getElementById('how-to-play');
+
 
 
 
@@ -61,14 +67,18 @@ const computerScoreEl = document.querySelector('#ComputerScore');
 
 //When window loads
 window.addEventListener('DOMContentLoaded', () => {
-    const startModal = document.getElementById('startModal');
-    const startButton = document.getElementById('startGameBtn');
-
+    //Listening for the Game start Button
     startButton.addEventListener('click', () => {
         startModal.style.display = 'none';
         init();
     });
+
+    instructionBtn.addEventListener ('click', showInstructions);
 });
+
+const showInstructions = () => {
+    instructionEl.classList.toggle('hide');
+}
 
 //Initializing the game
 const init = (() => {
@@ -78,7 +88,7 @@ const init = (() => {
         ship.addEventListener('click', shipSelection);
     });
 
-    redoBtnEl.addEventListener('click', ()=>{
+    redoBtnEl.addEventListener('click', () => {
         location.reload();
     });
 });
