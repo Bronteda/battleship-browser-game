@@ -20,7 +20,7 @@ body {
     font-weight: 100;
     color:lightseagreen;
     margin: 20px;
-    background-image: url("/Images/haze-over-the-ocean.jpg");
+    background-image: url("../Images/haze-over-the-ocean.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
