@@ -58,7 +58,8 @@ const computerScoreEl = document.querySelector('#ComputerScore');
 const startModal = document.getElementById('startModal');
 const startButton = document.getElementById('startGameBtn');
 const instructionBtn = document.getElementById('instructionsBtn');
-const  instructionEl= document.getElementById('how-to-play');
+const instructionEl = document.getElementById('how-to-play');
+const backBtnEl = document.querySelector('#backBtn');
 
 
 
@@ -73,11 +74,30 @@ window.addEventListener('DOMContentLoaded', () => {
         init();
     });
 
-    instructionBtn.addEventListener ('click', showInstructions);
+    instructionBtn.addEventListener('click', showInstructions);
 });
 
 const showInstructions = () => {
+    //Hiding the original buttons on front page
+    startButton.classList.toggle('hide');
+    instructionBtn.classList.toggle('hide');
+    //show the instructions
     instructionEl.classList.toggle('hide');
+    //Back button
+    backBtnEl.classList.toggle('hide');
+
+    backBtnEl.addEventListener('click', backButton);
+}
+
+const backButton = () =>{
+     //show original buttons
+        startButton.classList.toggle('hide');
+        instructionBtn.classList.toggle('hide');
+        //remove instructions
+        instructionEl.classList.toggle('hide');
+        //hide Back button
+        backBtnEl.classList.toggle('hide');
+
 }
 
 //Initializing the game
@@ -423,9 +443,10 @@ const generateComputerSide = () => {
     }
 }
 
+//This handles the different options between lets play or reshuffle ships
 const handleGameOptions = (event) => {
     const optionBtn = event.target;
-
+    //This stops errors to ensure button from that section was selected
     if (!optionBtn.classList.contains('gameBtn')) {
         return;
     }

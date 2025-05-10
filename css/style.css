@@ -65,7 +65,7 @@ body {
     gap:10px;
   }
 
-  #startGameBtn, #instructionsBtn{
+  #startGameBtn, #instructionsBtn, #backBtn{
     padding: 10px 20px;
     font-size: 16px;
     background-color: #0077cc;
@@ -75,7 +75,7 @@ body {
     cursor: pointer;
   }
   
-  #startGameBtn:hover, #instructionsBtn:hover{
+  #startGameBtn:hover, #instructionsBtn:hover, #backBtn:hover{
     background-color: #005fa3;
   } 
 
@@ -99,6 +99,7 @@ body {
   .how-to-play-section ol {
     padding-left: 20px;
   }
+
 
 .container {
     display: flex;
