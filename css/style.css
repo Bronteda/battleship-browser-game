@@ -37,7 +37,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
     overflow-y: auto; /* allows internal scroll if content is tall */
     padding: 1rem; 
   }
@@ -114,7 +113,6 @@ body {
     align-items: center;
     text-align: center;
 }
-
 
 .grid {
     display: flex;
@@ -240,11 +238,6 @@ body {
     text-align: center;
 }
 
-/*.computer-ship {
-    background-color: orange;
-
-}*/
-
 #playAgainContainer {
     display: flex;
     flex-direction: row;
@@ -282,10 +275,16 @@ body {
 
 }
 
-/* .computer-hit{
-    background-color: blueviolet;
-} */
-
 .hide {
     display: none;
 }
+
+/*Below is for testing purposes 
+.computer-ship {
+    background-color: orange;
+
+}
+
+.computer-hit{
+    background-color: blueviolet;
+} */
