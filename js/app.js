@@ -276,8 +276,6 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
             break;
     }
 
-    //console.log(playerShips);
-
     messageEl.textContent = 'Ship placed successfully!';
 
     //keeping track of number of successful sips placed
@@ -312,7 +310,6 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
         //Reposition function 
         gameBtnConatinerEls.addEventListener('click', handleGameOptions);
 
-        //add function to startGame();   
     }
 }
 
