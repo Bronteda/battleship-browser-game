@@ -528,7 +528,7 @@ const processMove = (event) => {
 
     turn = 'computer'
     grid.removeEventListener('click', processMove);
-    setTimeout(computersTurn, 1200); //delaying for realism 
+    setTimeout(computersTurn, 1000); //delaying for realism 
 
 }
 //*This computers turn to try and hit the players ships
@@ -587,7 +587,7 @@ const computersTurn = () => {
     setTimeout(() => {
         messageEl.textContent = "Your Turn. Choose a square."; // Inform player it’s their turn
         grid.addEventListener('click', processMove); // Enable player clicks again
-    }, 1200); // Delay before showing the "Your Turn" message
+    }, 1000); // Delay before showing the "Your Turn" message
 }
 //*Check if all cells within a ship are sunk and determines the winner or loser. 
 const checkIfShipSunk = (ship, gameTurn) => {
