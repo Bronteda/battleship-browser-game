@@ -43,3 +43,8 @@ after: gives us an array we can loop through
   ship1: [{ cellNumber: 3, hit: true }, { cellNumber: 4, hit: true }],
   ship2: [{ cellNumber: 10, hit: true }, { cellNumber: 11, hit: false }]
 }
+
+- object.keys - This looks at the key values of an obejct 
+Object.keys(ships).forEach(shipType => {
+        ships[shipType] = [];
+    });

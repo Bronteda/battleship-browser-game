@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     instructionBtn.addEventListener('click', showInstructions);
 });
-
+//*Show how to play instructions
 const showInstructions = () => {
     //Hiding the original buttons on front page
     startButton.classList.toggle('hide');
@@ -88,15 +88,15 @@ const showInstructions = () => {
 
     backBtnEl.addEventListener('click', backButton);
 }
-
-const backButton = () =>{
-     //show original buttons
-        startButton.classList.toggle('hide');
-        instructionBtn.classList.toggle('hide');
-        //remove instructions
-        instructionEl.classList.toggle('hide');
-        //hide Back button
-        backBtnEl.classList.toggle('hide');
+//*Processing the back button
+const backButton = () => {
+    //show original buttons
+    startButton.classList.toggle('hide');
+    instructionBtn.classList.toggle('hide');
+    //remove instructions
+    instructionEl.classList.toggle('hide');
+    //hide Back button
+    backBtnEl.classList.toggle('hide');
 
 }
 
@@ -443,7 +443,7 @@ const generateComputerSide = () => {
     }
 }
 
-//This handles the different options between lets play or reshuffle ships
+//*This handles the different options between lets play or reshuffle ships
 const handleGameOptions = (event) => {
     const optionBtn = event.target;
     //This stops errors to ensure button from that section was selected
@@ -461,6 +461,7 @@ const handleGameOptions = (event) => {
     }
 }
 
+//*This handles Which button is pressed between let's play and reposition
 const gamePlay = () => {
 
     //*Reset the Board
@@ -482,7 +483,7 @@ const gamePlay = () => {
 
 
 }
-
+//*This function processes the players move and changes the cell color to whether the user hit or missed a ship
 const processMove = (event) => {
     //Show the DOM square selected 
     let squareDOM = event.target;
@@ -530,7 +531,7 @@ const processMove = (event) => {
     setTimeout(computersTurn, 1200); //delaying for realism 
 
 }
-
+//*This computers turn to try and hit the players ships
 const computersTurn = () => {
 
     //If game over flag is true 
@@ -588,7 +589,7 @@ const computersTurn = () => {
         grid.addEventListener('click', processMove); // Enable player clicks again
     }, 1200); // Delay before showing the "Your Turn" message
 }
-
+//*Check if all cells within a ship are sunk and determines the winner or loser. 
 const checkIfShipSunk = (ship, gameTurn) => {
     //this check thats each ships Hit featur is true
     const isSunk = ship.every(cell => cell.hit);
@@ -632,7 +633,7 @@ const checkIfShipSunk = (ship, gameTurn) => {
     }
 
 }
-
+//*Check if all boats are sunk to determine the winner 
 const checkIfAllSunk = (turn) => {
 
     //condition ? valueIfTrue : valueIfFalse
@@ -646,23 +647,17 @@ const checkIfAllSunk = (turn) => {
 
 //*Additional functions
 
-
+//This is when the reposition button is clicked , we only going back to a certain milestone. Don't need a complete reset
 const reshuffleShips = () => {
 
     //Need to remove all cells with ship class 
-    cells.forEach((cell) => {
-        cell.classList.remove('player-ship');
-        cell.classList.remove('selected');
-        cell.classList.remove('computer-ship');
-        cell.classList.remove('player-hit', 'player-miss', 'sunk');
-        cell.classList.remove('computer-hit', 'computer-miss');
-    });
+    resetCells();
 
     //Bring back the ship buttons
     shipBtnEls.forEach((shipBtn) => {
         shipBtn.disabled = false;
         shipBtn.classList.remove('hide');
-        shipBtn.addEventListener('click', shipSelection);
+        resetListeners(shipBtn, 'click', shipSelection);
     });
 
     numCells = null;
@@ -671,16 +666,10 @@ const reshuffleShips = () => {
     currentShipButton = null;
 
     //Remove the player side as well 
-    playerShips.ship5 = [];
-    playerShips.ship4 = [];
-    playerShips.ship3 = [];
-    playerShips.ship2 = [];
+    resetShips(playerShips);
 
     //Remove the computer side as well 
-    computerShips.ship5 = [];
-    computerShips.ship4 = [];
-    computerShips.ship3 = [];
-    computerShips.ship2 = [];
+    resetShips(computerShips);
 
     //Hide the game options again
     gameBtnConatinerEls.classList.toggle('hide');
@@ -694,23 +683,15 @@ const reshuffleShips = () => {
 }
 //Reset the board 
 const resetTheBoard = () => {
-    //reset the board 
-
 
     //Need to remove all cells with ship class 
-    cells.forEach((cell) => {
-        cell.classList.remove('player-ship');
-        cell.classList.remove('selected');
-        cell.classList.remove('computer-ship');
-        cell.classList.remove('player-hit', 'player-miss', 'sunk');
-        cell.classList.remove('computer-hit', 'computer-miss');
-    });
+    resetCells();
 
     //Bring back the ship buttons
     shipBtnEls.forEach((shipBtn) => {
         shipBtn.disabled = false;
         shipBtn.classList.remove('hide');
-        shipBtn.addEventListener('click', shipSelection);
+        resetListeners(shipBtn,'click',shipSelection);
     });
 
     numCells = null;
@@ -720,23 +701,13 @@ const resetTheBoard = () => {
     turn = null;
 
     //Remove the player side as well 
-    playerShips.ship5 = [];
-    playerShips.ship4 = [];
-    playerShips.ship3 = [];
-    playerShips.ship2 = [];
+    resetShips(playerShips);
 
     //Remove the computer side as well 
-    computerShips.ship5 = [];
-    computerShips.ship4 = [];
-    computerShips.ship3 = [];
-    computerShips.ship2 = [];
+    resetShips(computerShips);
 
     //score reset
-    playerScore = 0;
-    computerScore = 0;
-    playerScoreEl.textContent = 'Player Score = 0';
-    computerScoreEl.textContent = 'Computer Score = 0';
-    scoresConatinerel.classList.toggle('hide');
+    resetScores();
 
     //game flag
     gameOver = false;
@@ -764,7 +735,34 @@ function resetSquareSelection() {
     // enable the position buttons
     enableBtn(positionBtnEls);
     // (Re‑)attach the grid listener to select a new square
-    grid.addEventListener('click', squareClick);
+    resetListeners(grid,'click',squareClick);
+    //grid.addEventListener('click', squareClick);
+}
+
+//*Helper functions 
+
+const resetCells = () => {
+    cells.forEach((cell) => {
+        cell.classList.remove('player-ship', 'selected', 'computer-ship', 'player-hit', 'player-miss', 'sunk', 'computer-hit', 'computer-miss');
+    });
+};
+
+const resetShips = (ships) => {
+    Object.keys(ships).forEach(shipType => {
+        ships[shipType] = [];
+    });
+};
+
+const resetListeners = (element, event, handler) => {
+    element.removeEventListener(event, handler);
+    element.addEventListener(event, handler);
+};
+
+const resetScores = () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreEl.textContent = 'Player Score = 0';
+    computerScoreEl.textContent = 'Computer Score = 0';
 }
 
 //This disables the other buttons once one is selected
