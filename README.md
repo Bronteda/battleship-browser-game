@@ -1,4 +1,5 @@
 # battleship-browser-game
+![alt text](..Images/Logo.png)
 Battleship Browser Game 
 
 What I learned:
