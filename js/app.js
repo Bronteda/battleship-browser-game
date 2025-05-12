@@ -565,7 +565,7 @@ const computersTurn = () => {
 
         if (hitShip) {
             hitShip.hit = true;
-            messageEl.textContent = 'Computer has hit your ship';
+            message += 'Computer has hit your ship';
             console.log('Computer hit ship at index:', randomIndex);
             randomSquare.classList.add('computer-hit');
             checkIfShipSunk(ship, turn); // call it here, once you know which ship it is
@@ -688,7 +688,7 @@ const resetTheBoard = () => {
     shipBtnEls.forEach((shipBtn) => {
         shipBtn.disabled = false;
         shipBtn.classList.remove('hide');
-        resetListeners(shipBtn,'click',shipSelection);
+        resetListeners(shipBtn, 'click', shipSelection);
     });
 
     numCells = null;
@@ -715,6 +715,8 @@ const resetTheBoard = () => {
 
     //Hide the game options again
     gameBtnConatinerEls.classList.toggle('hide');
+    //Hide the scores again
+    scoresConatinerel.classList.toggle('hide');
 
     //Show message again
     SelectShipMessageEl.classList.toggle('hide');
@@ -732,7 +734,7 @@ function resetSquareSelection() {
     // enable the position buttons
     enableBtn(positionBtnEls);
     // (Re‑)attach the grid listener to select a new square
-    resetListeners(grid,'click',squareClick);
+    resetListeners(grid, 'click', squareClick);
     //grid.addEventListener('click', squareClick);
 }
 
