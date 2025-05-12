@@ -1,6 +1,41 @@
 # battleship-browser-game
 ![alt text](Images/Logo.png)
-Battleship Browser Game 
+
+Game Name: Battleships Browser Game
+
+Description:
+Battleships is a digital version of the classic two-player strategy game where you face off against one another but in this version you play against a computer opponent. Both you and the computer place ships on a hidden grid and take turns guessing the locations of each other's ships. The objective is to be the first to sink all of the enemy's ships.
+
+Background:
+I chose to recreate Battleships because it was one of my favourite childhood games. I used to play it a lot with my brother, and building a version where you can play against a computer felt like a fun way to combine nostalgia with a programming challenge.
+
+Links:
+Planning Material: https://drive.google.com/drive/folders/1FGfibLE0UW7hNKV0kuZIt_NV7d9aeSgp?usp=sharing
+Deployed game : https://bronteda.github.io/battleship-browser-game/
+
+Attributions:
+
+Google Fonts:
+- Audiowide: https://fonts.google.com/specimen/Audiowide
+- Poiret One: https://fonts.google.com/specimen/Poiret+One
+
+Confetti Animation:
+- canvas-confetti library (by catdad)
+  CDN link used: https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js
+  GitHub: https://github.com/catdad/canvas-confetti
+
+Background Image:
+- I downloaded the image from : https://www.metoffice.gov.uk/research/approach/modelling-systems/ocean-models
+
+Technologies Used:
+- HTML5
+- CSS3
+- JavaScript 
+- Google Fonts
+- Canvas Confetti
+
+Future Plans:
+
 
 What I learned:
 - Math.floor - Rounds a number down to nearest whole number
