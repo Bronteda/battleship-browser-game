@@ -11,7 +11,7 @@ I chose to recreate Battleships because it was one of my favourite childhood gam
 
 Links:
 - Planning Material: https://drive.google.com/drive/folders/1FGfibLE0UW7hNKV0kuZIt_NV7d9aeSgp?usp=sharing
-  - The wireframes include the pseudocode for each section of the game. I used images to make it eaiser to understand. 
+  - The wireframes include the pseudocode for each section of the game. I used images to make it easier to understand. 
 - Deployed game : https://bronteda.github.io/battleship-browser-game/
 
 Attributions:
