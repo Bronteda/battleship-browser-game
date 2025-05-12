@@ -21,8 +21,8 @@ Google Fonts:
 
 Confetti Animation:
 - canvas-confetti library (by catdad)
-  CDN link used: https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js
-  GitHub: https://github.com/catdad/canvas-confetti
+  - CDN link used: https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js
+  - GitHub: https://github.com/catdad/canvas-confetti
 
 Background Image:
 - I downloaded the image from : https://www.metoffice.gov.uk/research/approach/modelling-systems/ocean-models
@@ -35,6 +35,23 @@ Technologies Used:
 - Canvas Confetti
 
 Future Plans:
+- Improve Computer side: Enhance the computer opponent to make more strategic moves instead of relying on random guesses.
+
+- Visual Ship Placement: Replace placeholder visuals with actual ship images and allow users to drag and place ships on the board.
+
+- Display Computer Board: Show the computer's grid (with hidden ships) during gameplay to improve clarity and user experience.
+
+- Multiplayer Mode: Add an option for two players to play against each other locally or online.
+
+- Difficulty Levels: Introduce different difficulty settings for the computer opponent (e.g., Easy, Medium, Hard).
+
+- Sound Effects: Implement sound effects for actions like hitting a ship, missing, or sinking a ship to make the game more immersive.
+
+- Game Statistics: Add a section to display stats after the game, such as hit accuracy, number of turns taken, etc.
+
+- Mobile Responsiveness: Ensure the game works seamlessly across different screen sizes and devices, especially on mobile phones.
+
+- Game Save/Resume Feature: Allow players to save their progress and resume the game later.
 
 
 What I learned:
