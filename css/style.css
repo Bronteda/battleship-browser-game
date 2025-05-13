@@ -5,6 +5,19 @@
     box-sizing: border-box;
 }
 
+/* Reset and global styles */
+body {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 100;
+    color: rgb(56, 179, 179);
+    margin: 20px;
+    background-image: url("../Images/haze-over-the-ocean.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Title styling */
 #title {
     font-size: 90px;
     font-weight: 500;
@@ -19,16 +32,6 @@
 
 #title:hover {
     transform: rotate(-1deg) scale(1.10);
-}
-
-body {
-    font-family: "Audiowide", sans-serif;
-    font-weight: 100;
-    color: rgb(56, 179, 179);
-    margin: 20px;
-    background-image: url("../Images/haze-over-the-ocean.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 /* Modal background */
@@ -72,6 +75,7 @@ body {
     gap: 10px;
 }
 
+/* Buttons */
 #startGameBtn,
 #instructionsBtn,
 #backBtn {
@@ -90,6 +94,7 @@ body {
     background-color: #005fa3;
 }
 
+/* How to play section */
 .how-to-play-section {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 20px;
@@ -111,7 +116,7 @@ body {
     padding-left: 20px;
 }
 
-
+/* Container layout */
 .container {
     display: flex;
     justify-content: center;
@@ -119,6 +124,7 @@ body {
     align-items: flex-start;
 }
 
+/* Left Panel layout */
 .left-panel {
     display: flex;
     flex-direction: column;
@@ -151,6 +157,7 @@ body {
     border: 1px solid rgb(14, 13, 13);
 }
 
+/* Right Panel layout */
 .right-panel {
     display: flex;
     flex-direction: column;
@@ -160,7 +167,6 @@ body {
     align-items: center;
     text-align: center;
 }
-
 
 .player-indicator {
     padding: 10px 20px;
@@ -173,6 +179,7 @@ body {
 
 }
 
+/* Ship buttons */
 .ship-btn {
     padding: 8px 16px;
     font-size: 14px;
@@ -186,21 +193,10 @@ body {
     text-align: center;
 }
 
-.ship-5-btn {
-    width: 300px;
-}
-
-.ship-4-btn {
-    width: 250px;
-}
-
-.ship-3-btn {
-    width: 200px;
-}
-
-.ship-2-btn {
-    width: 150px;
-}
+.ship-5-btn {width: 300px;}
+.ship-4-btn {width: 250px;}
+.ship-3-btn {width: 200px;}
+.ship-2-btn {width: 150px;}
 
 .ship-btn:hover,
 .gameBtnConatiner button:hover,
@@ -209,6 +205,7 @@ body {
     background-color: #41719e;
 }
 
+/* Buttons and containers */
 .redoBtn {
     padding: 8px 16px;
     font-size: 40px;
@@ -287,34 +284,22 @@ body {
     text-align: center;
 }
 
-
-.player-hit {
-    background-color: red;
-}
-
-.player-miss {
-    background-color: yellow;
-}
-
-.sunk {
-    background-color: grey;
-}
+/* Game cell states */
+.player-hit {background-color: red;}
+.player-miss {background-color: yellow;}
+.sunk {background-color: grey;}
 
 .scores {
     background-color: aliceblue;
     width: 300px;
     border-radius: 5px;
-
 }
 
-.hide {
-    display: none;
-}
+.hide {display: none;}
 
 /*Below is for testing purposes 
 .computer-ship {
     background-color: orange;
-
 }
 
 .computer-hit{
