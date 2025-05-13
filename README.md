@@ -10,9 +10,9 @@ Battleships is a digital version of the classic two-player strategy game where y
 I chose to recreate Battleships because it was one of my favourite childhood games. I used to play it a lot with my brother, and building a version where you can play against a computer felt like a fun way to combine nostalgia with a programming challenge.
 
 ## Links:
-- Planning Material: https://drive.google.com/drive/folders/1FGfibLE0UW7hNKV0kuZIt_NV7d9aeSgp?usp=sharing
+- **Planning Material**: https://drive.google.com/drive/folders/1FGfibLE0UW7hNKV0kuZIt_NV7d9aeSgp?usp=sharing
   - The wireframes include the pseudocode for each section of the game. I used images to make it easier to understand. 
-- Deployed game : https://bronteda.github.io/battleship-browser-game/
+- **Deployed game** : https://bronteda.github.io/battleship-browser-game/
 
 ## Attributions:
 
