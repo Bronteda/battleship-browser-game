@@ -14,21 +14,21 @@ Links:
   - The wireframes include the pseudocode for each section of the game. I used images to make it easier to understand. 
 - Deployed game : https://bronteda.github.io/battleship-browser-game/
 
-Attributions:
+## Attributions:
 
-Google Fonts:
+**Google Fonts**:
 - Audiowide: https://fonts.google.com/specimen/Audiowide
 - Poiret One: https://fonts.google.com/specimen/Poiret+One
 
-Confetti Animation:
+**Confetti Animation**:
 - canvas-confetti library (by catdad)
   - CDN link used: https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js
   - GitHub: https://github.com/catdad/canvas-confetti
 
-Background Image:
+**Background Image**:
 - I downloaded the image from : https://www.metoffice.gov.uk/research/approach/modelling-systems/ocean-models
 
-- **Sound Effects** (all via [Pixabay](https://pixabay.com/sound-effects/), used under the Pixabay Content License):  
+**Sound Effects** (all via [Pixabay](https://pixabay.com/sound-effects/), used under the Pixabay Content License):  
   - "Cinematic Hit" by [LordSonny](https://pixabay.com/sound-effects/cinematic-hit-145738/) – used for ship hits  
   - "Mouse Click" by [Universfield](https://pixabay.com/sound-effects/mouse-click-117076/) – used for placing ships  
   - "Winning" by [PW23CHECK](https://pixabay.com/sound-effects/winning-145739/) – used for player victory
