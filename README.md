@@ -1,7 +1,7 @@
 # battleship-browser-game
 ![alt text](Images/Logo.png)
 
-Game Name: Battleships Browser Game
+## Game Name: Battleships Browser Game
 
 ## Description:
 Battleships is a digital version of the classic two-player strategy game where you face off against one another but in this version you play against a computer opponent. Both you and the computer place ships on a hidden grid and take turns guessing the locations of each other's ships. The objective is to be the first to sink all of the enemy's ships.
