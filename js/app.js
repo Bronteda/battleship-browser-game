@@ -513,9 +513,10 @@ const processMove = (event) => {
 
         //check if found something
         if (hitShip) {
+            hitSound.currentTime = 0;//This rewinds the sound back.
+            hitSound.play();
             hitShip.hit = true;
             messageEl.textContent = 'You hit a ship';
-            hitSound.play();
             //Show on Board you hit a ship. 
             squareDOM.classList.add('player-hit');
             checkIfShipSunk(ship, turn);
