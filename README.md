@@ -28,6 +28,11 @@ Confetti Animation:
 Background Image:
 - I downloaded the image from : https://www.metoffice.gov.uk/research/approach/modelling-systems/ocean-models
 
+- **Sound Effects** (all via [Pixabay](https://pixabay.com/sound-effects/), used under the Pixabay Content License):  
+  - "Cinematic Hit" by [LordSonny](https://pixabay.com/sound-effects/cinematic-hit-145738/) – used for ship hits  
+  - "Mouse Click" by [Universfield](https://pixabay.com/sound-effects/mouse-click-117076/) – used for placing ships  
+  - "Winning" by [PW23CHECK](https://pixabay.com/sound-effects/winning-145739/) – used for player victory
+
 Technologies Used:
 - HTML5
 - CSS3

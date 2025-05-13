@@ -62,7 +62,10 @@ const instructionEl = document.getElementById('how-to-play');
 const backBtnEl = document.querySelector('#backBtn');
 
 
-
+/*-------------------------------- Sounds --------------------------------*/
+const hitSound = new Audio('./sounds/hit.mp3');
+const placeSound = new Audio('./sounds/placeSound.mp3');
+const winSound = new Audio('./sounds/win.mp3');
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -222,6 +225,7 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
                 attemptedIndexes.push(index);
                 shipArray.push({ cellNumber: index, hit: false });
                 cells[index].classList.add('player-ship'); //to show the ship
+                placeSound.play();
             }
 
         }
@@ -256,6 +260,7 @@ const placeShipOnBoard = (shipCells, startSquare, positionChosen) => {
                 attemptedIndexes.push(index);
                 shipArray.push({ cellNumber: index, hit: false });
                 cells[index].classList.add('player-ship'); //to show the ship
+                placeSound.play();
             }
         }
     }
@@ -510,6 +515,7 @@ const processMove = (event) => {
         if (hitShip) {
             hitShip.hit = true;
             messageEl.textContent = 'You hit a ship';
+            hitSound.play();
             //Show on Board you hit a ship. 
             squareDOM.classList.add('player-hit');
             checkIfShipSunk(ship, turn);
@@ -604,6 +610,7 @@ const checkIfShipSunk = (ship, gameTurn) => {
             playerScoreEl.textContent = `Player Score = ${playerScore} `;
             if (checkIfAllSunk(gameTurn)) {
                 messageEl.textContent = "Well Done, You Won !!🥳"
+                winSound.play();
                 gameOver = true; // prevent further moves
                 setTimeout(() => {
                     confetti(); // default burst
